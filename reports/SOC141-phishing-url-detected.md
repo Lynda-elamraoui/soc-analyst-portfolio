@@ -99,9 +99,27 @@ L'analyse est limitée aux éléments disponibles dans l'environnement de format
 ---
 
 ## 4. Analyse des logs et corrélation
+### Capture 2 - Événement Proxy
+
+L'événement Proxy associé à l'alerte présente les mêmes adresses IP source et destination que celles observées dans l'alerte.
+
+![Proxy Event](../evidence/SOC141/02-proxy-log.png)
+
+Cet événement confirme qu'une communication HTTP a été enregistrée entre le poste `EmilyComp` (`172.16.17.49`) et l'adresse IP `91.189.114.8`.
+
+### Capture 3 - URL observée dans le log Proxy
+
+La consultation du détail de l'événement permet d'afficher l'URL complète associée à la requête HTTP.
+
+![Proxy Request URL](../evidence/SOC141/03-proxy-request-url.png)
+
+L'URL observée dans le log Proxy correspond à celle mentionnée dans l'alerte :
+
+`hxxp://mogagrocol[.]ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend[.]io`
+
+Cette correspondance renforce la corrélation entre l'alerte et l'événement Proxy analysé.
 
 ### 4.1. Événements réseau identifiés
-
 Deux événements ont été retrouvés dans Log Management.
 
 | Événement | Timestamp affiché | Source | Destination |
