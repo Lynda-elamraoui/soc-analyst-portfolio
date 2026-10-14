@@ -207,7 +207,7 @@ Ces résultats constituent un indicateur fort en faveur de la qualification malv
 | VirusTotal — IP `91.189.114.8` | 1 détection malveillante sur 92 moteurs | Indice faible pris isolément ; insuffisant pour qualifier l'IP de malveillante avec certitude. |
 | VirusTotal — URL | 10 détections malveillantes, dont 3 classifications phishing, selon les résultats relevés | Indice en faveur d'une URL malveillante. |
 | URLhaus | Aucun résultat pour la recherche effectuée | Absence de corroboration par cette source ; ne prouve pas que l'URL est légitime. |
-| URLScan.io | Informations contextuelles sur le site et les technologies WordPress/PHP relevées dans les notes d'investigation | Ces informations ne constituent pas, à elles seules, une preuve de malveillance. |
+| URLScan.io | Informations contextuelles sur le site et les technologies WordPress/PHP observées lors de l'analyse | Ces informations ne constituent pas, à elles seules, une preuve de malveillance. |
 | Hybrid Analysis | Résultat affiché : `MALICIOUS (100)` | Indice fort en faveur d'une URL malveillante. |
 
 ### 5.5. Interprétation
