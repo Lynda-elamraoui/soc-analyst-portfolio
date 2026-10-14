@@ -16,7 +16,7 @@ Cette investigation porte sur une alerte `Phishing URL Detected` détectée dans
 
 L'alerte concerne une activité HTTP depuis le poste `EmilyComp` (`172.16.17.49`), associé à l'utilisateur `ellie`, vers l'adresse IP de destination `91.189.114.8` sur le port `80`.
 
-Le log Proxy contient une URL suspecte hébergée sur le domaine `mogagrocol.ru`.
+Le log Proxy contient une URL suspecte hébergée sur le domaine `mogagrocol[.]ru`.
 
 ### Principaux résultats
 
@@ -49,11 +49,25 @@ Les éléments disponibles justifient la qualification de l'alerte en True Posit
 | Protocole | HTTP |
 | Environnement | Let's Defend — SOC Analyst Lab |
 
+
+### Éléments observés dans l'alerte
+L'alerte indiquait notamment :
+
+- Utilisateur : `ellie`
+- Hostname : `EmilyComp`
+- Source IP : `172.16.17.49`
+- Destination IP : `91.189.114.8`
+- Device Action : `Allowed`
+- URL observée :
+
+`hxxp://mogagrocol[.]ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend[.]io`
+
+
 ### 2.1. URL suspecte
 
 L'alerte était associée à l'URL suivante :
+`hxxp://mogagrocol[.]ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend[.]io`
 
-`http://mogagrocol.ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend.io`
 
 Le champ `Device Action` indiquait `Allowed`.
 
@@ -152,8 +166,6 @@ Les résultats ont été comparés afin de ne pas fonder la décision sur un seu
 | URLScan.io | Informations contextuelles sur le site et les technologies WordPress/PHP relevées dans les notes d'investigation | Ces informations ne constituent pas, à elles seules, une preuve de malveillance. |
 | Hybrid Analysis | Résultat affiché : `MALICIOUS (100)` | Indice fort en faveur d'une URL malveillante. |
 
-**Point de vérification :** la mention WordPress/PHP dans la ligne URLScan.io doit être conservée uniquement si elle correspond bien au résultat effectivement consulté. Les captures et notes doivent être vérifiées avant publication.
-
 ### 5.3. Interprétation
 
 Les résultats de VirusTotal concernant l'URL et le résultat de Hybrid Analysis soutiennent la qualification malveillante de l'URL.
@@ -209,8 +221,8 @@ Les indicateurs ci-dessous ont été identifiés au cours de l'investigation. Le
 
 | Type | Valeur | Qualification | Justification |
 |---|---|---|---|
-| URL | `http://mogagrocol.ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend.io` | URL malveillante | Présente dans le log Proxy et signalée par plusieurs sources de Threat Intelligence. |
-| Domaine | `mogagrocol.ru` | Domaine suspect associé à l'URL malveillante | Présent dans l'URL associée à l'activité réseau observée. |
+| URL | `hxxp://mogagrocol[.]ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend[.]io` | URL malveillante | Présente dans le log Proxy et signalée par plusieurs sources de Threat Intelligence. |
+| Domaine | `mogagrocol[.]ru` | Domaine suspect associé à l'URL malveillante | Présent dans l'URL associée à l'activité réseau observée. |
 | IP de destination | `91.189.114.8` | Infrastructure associée à l'activité suspecte | Destination de la requête observée ; réputation de l'IP insuffisante pour la qualifier seule de malveillante. |
 
 ### 7.1. Éléments de contexte
@@ -235,7 +247,7 @@ Ces informations identifient le poste et le compte associés à l'activité obse
 | Sévérité initiale | High |
 | Verdict | **True Positive** |
 | URL | URL malveillante selon les résultats de Threat Intelligence consultés |
-| Domaine | `mogagrocol.ru` |
+| Domaine | `mogagrocol[.]ru` |
 | IP de destination | `91.189.114.8` |
 | Poste concerné | `EmilyComp` |
 | Containment | Poste isolé dans Let's Defend |
