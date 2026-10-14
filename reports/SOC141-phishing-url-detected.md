@@ -34,6 +34,13 @@ Les éléments disponibles justifient la qualification de l'alerte en True Posit
 ---
 
 ## 2. Présentation de l'alerte
+### Capture 1 - Alerte initiale
+
+L'alerte suivante a déclenché l'investigation et constitue le point de départ de l'analyse.
+
+![Alert Overview](../evidence/SOC141/01-alert-overview.png)
+
+Cette alerte identifie une activité HTTP associée à une URL suspecte depuis le poste `EmilyComp`.
 
 | Champ | Valeur |
 |---|---|
