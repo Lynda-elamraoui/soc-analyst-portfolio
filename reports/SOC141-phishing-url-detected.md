@@ -34,6 +34,7 @@ Les éléments disponibles justifient la qualification de l'alerte en True Posit
 ---
 
 ## 2. Présentation de l'alerte
+
 ### Alerte initiale
 
 L'alerte suivante a déclenché l'investigation et constitue le point de départ de l'analyse.
@@ -56,21 +57,7 @@ Cette alerte identifie une activité HTTP associée à une URL suspecte depuis l
 | Protocole | HTTP |
 | Environnement | Let's Defend — SOC Analyst Lab |
 
-
-### Éléments observés dans l'alerte
-L'alerte indiquait notamment :
-
-- Utilisateur : `ellie`
-- Hostname : `EmilyComp`
-- Source IP : `172.16.17.49`
-- Destination IP : `91.189.114.8`
-- Device Action : `Allowed`
-- URL observée :
-
-`hxxp://mogagrocol[.]ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend[.]io`
-
-
-### 2.1. URL suspecte
+### 2.1. URL observée dans l'alerte
 
 L'alerte était associée à l'URL suivante :
 `hxxp://mogagrocol[.]ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend[.]io`
@@ -99,6 +86,7 @@ L'analyse est limitée aux éléments disponibles dans l'environnement de format
 ---
 
 ## 4. Analyse des logs et corrélation
+
 ### Validation de l'événement Proxy
 
 L'événement Proxy associé à l'alerte présente les mêmes adresses IP source et destination que celles observées dans l'alerte.
