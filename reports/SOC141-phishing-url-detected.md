@@ -34,7 +34,7 @@ Les éléments disponibles justifient la qualification de l'alerte en True Posit
 ---
 
 ## 2. Présentation de l'alerte
-### Capture 1 - Alerte initiale
+### Alerte initiale
 
 L'alerte suivante a déclenché l'investigation et constitue le point de départ de l'analyse.
 
@@ -99,7 +99,7 @@ L'analyse est limitée aux éléments disponibles dans l'environnement de format
 ---
 
 ## 4. Analyse des logs et corrélation
-### Capture 2 - Événement Proxy
+### Validation de l'événement Proxy
 
 L'événement Proxy associé à l'alerte présente les mêmes adresses IP source et destination que celles observées dans l'alerte.
 
@@ -107,7 +107,7 @@ L'événement Proxy associé à l'alerte présente les mêmes adresses IP source
 
 Cet événement confirme qu'une communication HTTP a été enregistrée entre le poste `EmilyComp` (`172.16.17.49`) et l'adresse IP `91.189.114.8`.
 
-### Capture 3 - URL observée dans le log Proxy
+### Validation de l'URL observée
 
 La consultation du détail de l'événement permet d'afficher l'URL complète associée à la requête HTTP.
 
@@ -118,6 +118,16 @@ L'URL observée dans le log Proxy correspond à celle mentionnée dans l'alerte 
 `hxxp://mogagrocol[.]ru/wp-content/plugins/akismet/fv/index.php?email=ellie@letsdefend[.]io`
 
 Cette correspondance renforce la corrélation entre l'alerte et l'événement Proxy analysé.
+
+### Corrélation avec l'événement Firewall
+
+L'événement Firewall associé à l'activité observée présente les mêmes adresses IP source et destination que celles relevées dans l'alerte et le log Proxy.
+
+![Firewall Event](../evidence/SOC141/04-firewall-log.png)
+
+Cet événement montre qu'une communication réseau a été enregistrée entre le poste `EmilyComp` (`172.16.17.49`) et l'adresse IP `91.189.114.8`.
+
+La cohérence des adresses IP, des ports et des horodatages renforce la corrélation entre l'alerte, l'événement Proxy et l'événement Firewall.
 
 ### 4.1. Événements réseau identifiés
 Deux événements ont été retrouvés dans Log Management.
