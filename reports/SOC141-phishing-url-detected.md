@@ -190,7 +190,17 @@ Les résultats observés incluent plusieurs classifications de type `Phishing`, 
 Ces résultats constituent un indicateur supplémentaire en faveur de la qualification malveillante de l'URL et viennent renforcer les observations effectuées lors de l'analyse des logs.
 
 
-### 5.3. Résultats observés
+### 5.3. Validation avec Hybrid Analysis
+
+L'URL a également été analysée à l'aide de Hybrid Analysis afin de compléter l'évaluation réalisée avec VirusTotal.
+
+![Hybrid Analysis](../evidence/SOC141/06-hybrid-analysis.png)
+
+Le résultat affichait un verdict `MALICIOUS` associé à un score de menace de `100/100`.
+
+Ces résultats constituent un indicateur fort en faveur de la qualification malveillante de l'URL et viennent corroborer les observations issues des autres sources de Threat Intelligence consultées.
+
+### 5.4. Résultats observés
 
 | Source | Résultat observé | Interprétation |
 |---|---|---|
@@ -200,7 +210,7 @@ Ces résultats constituent un indicateur supplémentaire en faveur de la qualifi
 | URLScan.io | Informations contextuelles sur le site et les technologies WordPress/PHP relevées dans les notes d'investigation | Ces informations ne constituent pas, à elles seules, une preuve de malveillance. |
 | Hybrid Analysis | Résultat affiché : `MALICIOUS (100)` | Indice fort en faveur d'une URL malveillante. |
 
-### 5.4. Interprétation
+### 5.5. Interprétation
 
 Les résultats de VirusTotal concernant l'URL et le résultat de Hybrid Analysis soutiennent la qualification malveillante de l'URL.
 
@@ -208,7 +218,7 @@ La réputation de l'URL complète doit être distinguée de celle de l'adresse I
 
 De même, l'absence de résultat dans URLhaus ne constitue pas une preuve d'innocuité.
 
-### 5.5. Conclusion Threat Intelligence
+### 5.6. Conclusion Threat Intelligence
 
 Les résultats disponibles soutiennent la qualification malveillante de l'URL. Associés à la présence de cette URL dans le log Proxy, ils justifient le verdict **True Positive** pour l'alerte.
 
